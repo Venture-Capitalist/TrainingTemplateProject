@@ -4,16 +4,14 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.DriveSubsystem;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
-public class RobotContainer {
-  private final DriveSubsystem m_drivetrain = new DriveSubsystem();
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
+public class RobotContainer {
+  private final CommandXboxController m_driverController =
+      new CommandXboxController(0);
+  private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
 
   public RobotContainer() {
     configureBindings();
@@ -29,6 +27,9 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     //m_driverController.b().whileTrue(m_drivetrain.exampleMethodCommand());
+    m_driverController.a().onTrue(m_DriveSubsystem.moveDaBot());
+    m_driverController.b().onTrue(m_DriveSubsystem.moveDaBot());
+    m_driverController.x().onTrue(m_DriveSubsystem.moveDaBot());
+    m_driverController.y().onTrue(m_DriveSubsystem.moveDaBot());
   }
-
 }
