@@ -22,8 +22,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
     m_DriveSubsystem.setDefaultCommand(m_DriveSubsystem.probeJoysticks(
-      m_driverController.getLeftX(),
-      m_driverController.getLeftY()
+      m_driverController
     ));
   }
 }
