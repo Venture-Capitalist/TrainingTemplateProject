@@ -24,5 +24,9 @@ public class RobotContainer {
     m_DriveSubsystem.setDefaultCommand(m_DriveSubsystem.probeJoysticks(
       m_driverController
     ));
+    m_driverController.leftBumper().onTrue(m_DriveSubsystem.increaseVoltageL());
+    m_driverController.rightBumper().onTrue(m_DriveSubsystem.increaseVoltageR());
+    m_driverController.leftTrigger().onTrue(m_DriveSubsystem.toggleLeftVoltage());
+    m_driverController.rightTrigger().onTrue(m_DriveSubsystem.toggleRightVoltage());
   }
 }
